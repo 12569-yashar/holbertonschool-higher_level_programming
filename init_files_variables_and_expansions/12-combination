@@ -1,0 +1,2 @@
+#!/bin/bash
+eval "$(printf 'for i in {a..z}\ndo\nfor j in {a..z}\ndo\nif [ $i$j != oo ]\nthen\necho $i$j\nfi\ndone\ndone\n')"
