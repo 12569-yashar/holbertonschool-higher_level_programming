@@ -2,9 +2,9 @@
 # salam
 n=1
 while (( n <= 10 )); do
-    echo -e "Best School\n"
+    echo "Best School"
     if (( n == 9 )); then
-        echo -e "Hi\n"
+        echo "Hi"
     fi
     ((n++))
 done
