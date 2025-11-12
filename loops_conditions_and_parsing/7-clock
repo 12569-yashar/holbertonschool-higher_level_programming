@@ -4,7 +4,7 @@
 deqiqe=1
 saat=0
 
-while (( saat <= 11 )); do
+while (( saat <= 12 )); do
     echo "Hour: $saat"
 
     while (( deqiqe <= 59 )); do
@@ -15,4 +15,3 @@ while (( saat <= 11 )); do
     deqiqe=0
     ((saat++))
 done
-echo "Hour: 12"
