@@ -12,6 +12,6 @@ while (( saat <= 12 )); do
         ((deqiqe++))
     done
 
-    deqiqe=0
+    deqiqe=1
     ((saat++))
 done
