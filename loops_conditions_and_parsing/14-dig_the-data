@@ -1,3 +1,26 @@
 #!/usr/bin/env bash
 #ihiiji
-awk '($1 != "" && $9 ~ /^[0-9]+$/) { count[$1" "$9]++ } END { for (key in count) print count[key], key }' apache-access.log | sort -nr
+file="apache-access.log"
+if [ -f "$file" ]; then
+  infile="$file"
+else
+  infile="-"
+fi
+
+awk '
+{
+  ip = $1
+  code = $9
+
+  # skip lines that don't have an IP and a numeric HTTP status code
+  if (ip == "" || code == "") next
+  if (code !~ /^[0-9]+$/) next
+
+  counts[ip " " code]++
+}
+END {
+  for (k in counts) {
+    print counts[k], k
+  }
+}
+' "$infile" 2>/dev/null | sort -nr
