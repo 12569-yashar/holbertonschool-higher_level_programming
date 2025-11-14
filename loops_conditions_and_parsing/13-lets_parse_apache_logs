@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-#salaam
-
-awk '{print $1, $9}' apache-access.log

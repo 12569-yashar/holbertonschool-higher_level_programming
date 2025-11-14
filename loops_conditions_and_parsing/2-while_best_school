@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-#salam 
-n=1
-while (( n <= 10 ))
-do
-    printf "Best School\n"
-    ((n+=1))
-done
-

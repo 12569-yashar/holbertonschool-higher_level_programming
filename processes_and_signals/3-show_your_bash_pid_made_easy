@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-#sdgsd
-pgrep -l 	bash
