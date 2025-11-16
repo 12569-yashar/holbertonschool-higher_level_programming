@@ -8,8 +8,6 @@ function finishTerm {
     exit 0
 }
 
-# Function for SIGQUIT (kill -3 or Ctrl+\)
-# Deletes PID file and exits without a message.
 function finishQuit {
     rm -f "$PID_FILE"
     exit 0
