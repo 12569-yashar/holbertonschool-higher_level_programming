@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+# a lot of extra traps
+PID_FILE="/var/run/myscript.pid"
+function finishTerm {
+    echo 'I hate the kill command'
+    # The script is assumed to be run with sudo, so 'rm' is sufficient.
+    rm -f "$PID_FILE"
+    exit 0
+}
+
+# Function for SIGQUIT (kill -3 or Ctrl+\)
+# Deletes PID file and exits without a message.
+function finishQuit {
+    rm -f "$PID_FILE"
+    exit 0
+}
+
+# --- Trap Setup ---
+# Trap SIGTERM (Signal 15) to run finishTerm
+trap finishTerm SIGTERM
+
+# Trap SIGQUIT (Signal 3) to run finishQuit
+trap finishQuit SIGQUIT
+
+# Trap SIGINT (Signal 2, Ctrl+C) to display the required message
+trap "echo 'Y U no love me?!'" SIGINT
+
+# 1. Create the PID file containing the script's PID ($$)
+# Since the script is executed with 'sudo', this operation is permitted.
+echo $$ > "$PID_FILE"
+
+# 2. Display "To infinity and beyond" indefinitely
+while true; do
+    echo "To infinity and beyond"
+    sleep 2
+done
