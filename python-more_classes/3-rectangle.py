@@ -51,17 +51,12 @@ class Rectangle:
         return 2 * (self.__width + self.__height)
 
     def __str__(self):
-        """Return printable rectangle using '#'.
-
-        If width or height is 0 → return empty string.
-        """
+        """Return printable rectangle using '#'."""
         if self.__width == 0 or self.__height == 0:
             return ""
-        rect = []
-        for _ in range(self.__height):
-            rect.append("#" * self.__width)
-        return "\n".join(rect)
 
-    def __repr__(self):
-        """Return string that can recreate the rectangle."""
-        return f"Rectangle({self.__width}, {self.__height})"
+        rectangle_rows = []
+        for _ in range(self.__height):
+            rectangle_rows.append("#" * self.__width)
+
+        return "\n".join(rectangle_rows)
