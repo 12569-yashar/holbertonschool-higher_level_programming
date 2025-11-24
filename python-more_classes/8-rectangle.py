@@ -6,7 +6,7 @@ class Rectangle:
     """Represents a rectangle"""
 
     number_of_instances = 0
-    print_symbol = "#"   # New public class attribute
+    print_symbol = "#"
 
     def __init__(self, width=0, height=0):
         """Initialize rectangle"""
@@ -63,11 +63,25 @@ class Rectangle:
             return ""
 
         symbol = str(self.print_symbol)
-        rect = []
+        result = []
         for _ in range(self.__height):
-            rect.append(symbol * self.__width)
-        return "\n".join(rect)
+            result.append(symbol * self.__width)
+        return "\n".join(result)
 
     def __repr__(self):
         """Return recreatable string"""
         return "Rectangle({}, {})".format(self.__width, self.__height)
+
+    @staticmethod
+    def bigger_or_equal(rect_1, rect_2):
+        """Return the bigger rectangle based on area"""
+
+        if not isinstance(rect_1, Rectangle):
+            raise TypeError("rect_1 must be an instance of Rectangle")
+
+        if not isinstance(rect_2, Rectangle):
+            raise TypeError("rect_2 must be an instance of Rectangle")
+
+        if rect_1.area() >= rect_2.area():
+            return rect_1
+        return rect_2
