@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-""" salam"""
+""" lookup """
+
 
 def lookup(obj):
-    """salam"""
+    """Bu kod atributlari liste cevirir"""
     return dir(obj)
