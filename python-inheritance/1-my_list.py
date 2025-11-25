@@ -3,4 +3,5 @@
 
 
 def print_sorted(self):
-    print self.sort
+    self.sort()
+    print(self)
