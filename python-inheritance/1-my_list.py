@@ -2,8 +2,8 @@
 """salam"""
 
 
-class Mylist:
-def print_sorted(self):
-    """asdasda"""
-    self.sort()
-    print(self)
+class MyList:
+    def print_sorted(self):
+        """asdasda"""
+        self.sort()
+        print(self)
