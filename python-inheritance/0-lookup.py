@@ -2,5 +2,5 @@
 """ salam"""
 
 def lookup(obj):
-"""salam"""
+    """salam"""
     return dir(obj)
