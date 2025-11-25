@@ -2,6 +2,7 @@
 """salam"""
 
 
+class Mylist:
 def print_sorted(self):
     """asdasda"""
     self.sort()
