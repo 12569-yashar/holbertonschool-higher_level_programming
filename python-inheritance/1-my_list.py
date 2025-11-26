@@ -1,9 +1,11 @@
 #!/usr/bin/python3
-"""salam"""
+"""MyList class definition"""
 
 
-class MyList:
+class MyList(list):
+    """Custom list class with a method to print sorted list"""
+
     def print_sorted(self):
-        """asdasda"""
+        """Prints the list in sorted order"""
         self.sort()
         print(self)
