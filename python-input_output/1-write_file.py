@@ -3,6 +3,6 @@
 
 
 def write_file(filename="", text=""):
-    """dasad"""
-    with open(filename,'w' encoding="utf-8") as f:
-        return f.write("text")
+    """salam"""
+    with open(filename, 'w', encoding="utf-8") as f:
+        return (f.write(text))
