@@ -1,18 +1,9 @@
 #!/usr/bin/python3
-"""
-Method module
-"""
+"""this is document"""
 
 
 def inherits_from(obj, a_class):
-    """check if object is an instance of a class
-    args:
-        obj: object to check
-        a_class: class to check
-    returns:
-        True or False
-    """
-
-    if type(obj) == a_class:
-        return False
-    return issubclass(type(obj), a_class)
+    """this is documnet"""
+    a = isinstance(obj, a_class)
+    b = type(obj) is not a_class
+    return a and b
