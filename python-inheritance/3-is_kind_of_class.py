@@ -2,4 +2,4 @@
 """salam"""
 def is_kind_of_class(obj, a_class):
     """Salam"""
-    if type(obj) == a_class
+    if isinstance(obj, a_class)
