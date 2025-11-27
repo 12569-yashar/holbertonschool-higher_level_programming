@@ -4,4 +4,4 @@
 
 def inherits_from(obj, a_class):
     """salam"""
-    return issubclass(obj, a_class)
+    return isinstance(obj, a_class)
