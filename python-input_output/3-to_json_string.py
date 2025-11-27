@@ -5,6 +5,5 @@ import json
 
 
 def to_json_string(my_obj):
-    """Salam"""
+    """salam"""
     return json.dumps(my_obj)
-
