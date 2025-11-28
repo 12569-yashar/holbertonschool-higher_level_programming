@@ -1,0 +1,2 @@
+-- salam
+SELECT * FROM mysql;
