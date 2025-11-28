@@ -1,3 +1,2 @@
--- salim
-USE hbtn_0c_0;
+-- salam
 SHOW CREATE TABLE first_table;
