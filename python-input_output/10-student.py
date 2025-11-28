@@ -1,49 +1,31 @@
 #!/usr/bin/python3
-"""Student class with to_json method"""
+"""salam"""
+
 
 class Student:
-    """Defines a student"""
+    """salam"""
 
     def __init__(self, first_name, last_name, age):
-        """Initialize student attributes"""
+        """salam"""
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
     def to_json(self, attrs=None):
-        """
-        Retrieve a dictionary representation of a Student instance.
-        If attrs is a list of strings, only include those attributes.
-        Otherwise, include all attributes.
-        """
-        if attrs is None:
-            return self.__dict__.copy()
+        """salam"""
+        obj = self.__dict__.copy()
+        if type(attrs) is list:
 
-        filtered = {}
-        for key in attrs:
-            if hasattr(self, key):
-                filtered[key] = getattr(self, key)
-        return filtered
-#!/usr/bin/python3
-"""Student class with to_json method"""
+            for i in attrs:
+                if type(i) is not str:
+                    return obj
 
-class Student:
-    """Defines a student"""
+            d_list = {}
 
-    def __init__(self, first_name, last_name, age):
-        """Initialize"""
-        self.first_name = first_name
-        self.last_name = last_name
-        self.age = age
+            for iatr in range(len(attrs)):
+                for satr in obj:
+                    if attrs[iatr] == satr:
+                        d_list[satr] = obj[satr]
+            return d_list
 
-    def to_json(self, attrs=None):
-        """attributes"""
-        if attrs is None:
-            return self.__dict__.copy()
-
-        filtered = {}
-        for key in attrs:
-            if hasattr(self, key):
-                filtered[key] = getattr(self, key)
-        return filtered
-
+        return obj
