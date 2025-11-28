@@ -10,4 +10,5 @@ class Student:
         self.age=age
         
     def to_json(self):
+        """salam"""
         return self.__dict__.copy()
