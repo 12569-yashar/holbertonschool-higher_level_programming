@@ -1,2 +1,2 @@
 -- salam
-SELECT * FROM mysql;
+SHOW TABLES;
