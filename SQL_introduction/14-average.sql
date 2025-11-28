@@ -1,2 +1,2 @@
 -- salam
-SELECT AVG(average) FROM second_table;
+SELECT AVG(second_table) FROM second_table;
