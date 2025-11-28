@@ -1,2 +1,2 @@
 --salam
-show DATABASES;
+SHOW DATABASES;
