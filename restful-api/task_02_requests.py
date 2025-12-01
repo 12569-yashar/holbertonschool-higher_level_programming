@@ -7,7 +7,7 @@ API_URL = "https://jsonplaceholder.typicode.com/posts"
 
 
 def fetch_and_print_posts():
-    """Fetch posts and print the status code + titles."""
+    """salam"""
     response = requests.get(API_URL)
 
     # Print status code
@@ -25,7 +25,7 @@ def fetch_and_print_posts():
 
 
 def fetch_and_save_posts():
-    """Fetch posts and save selected fields to a CSV file."""
+    """salam"""
     response = requests.get(API_URL)
 
     if response.status_code != 200:
