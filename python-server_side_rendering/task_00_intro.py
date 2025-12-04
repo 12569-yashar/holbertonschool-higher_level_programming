@@ -1,56 +1,35 @@
-#!/usr/bin/python3
-"""
-salam
-"""
-
-import os
+"""Module containing python script for sending invitations"""
+from os.path import exists
 
 
-def generate_invitations(template, attendees):
-    """
-    salam
-    """
+def generate_invitations(template, attendees_list):
+    """Function for generating invitations"""
 
-    # -------- Input type validation ----------
+    if not template:
+        print("ERROR: template cannot be empty")
+        return
+
+    if not attendees_list:
+        print("ERROR: attendees_list cannot be empty")
+        return
+
     if not isinstance(template, str):
-        print("Invalid input: template should be a string.")
+        print("ERROR: template must be a string")
         return
 
-    if not isinstance(attendees, list) or not all(isinstance(a, dict) for a in attendees):
-        print("Invalid input: attendees should be a list of dictionaries.")
+    if (not isinstance(attendees_list, list) or
+            not all(isinstance(item, dict) for item in attendees_list)):
+        print("ERROR: attendees_list must be a list of dictionaries")
         return
 
-    # -------- Empty template ----------
-    if template.strip() == "":
-        print("Template is empty, no output files generated.")
-        return
-
-    # -------- Empty attendees list ----------
-    if len(attendees) == 0:
-        print("No data provided, no output files generated.")
-        return
-
-    # -------- Process attendees ----------
-    for index, person in enumerate(attendees, start=1):
-
-        # Replace missing or None values with "N/A"
-        name = person.get("name") or "N/A"
-        event_title = person.get("event_title") or "N/A"
-        event_date = person.get("event_date") or "N/A"
-        event_location = person.get("event_location") or "N/A"
-
-        # Create personalized content
-        filled_template = (
-            template
-            .replace("{name}", name)
-            .replace("{event_title}", event_title)
-            .replace("{event_date}", event_date)
-            .replace("{event_location}", event_location)
-        )
-
-        # Output file name: output_X.txt
-        filename = f"output_{index}.txt"
-
-        # Write the file
-        with open(filename, "w") as f:
-            f.write(filled_template)
+    for index, attendee in enumerate(attendees_list, start=1):
+        template_schema = template
+        for key in ['name', 'event_title', 'event_date', 'event_location']:
+            placeholder = "{" + f"{key}" + "}"
+            value = attendee.get(key) or "N/A"
+            template_schema = template_schema.replace(placeholder, value)
+        if not exists(f"output_{index}.txt"):
+            with open(f"output_{index}.txt", "w") as file:
+                file.write(template_schema)
+        else:
+            print("ERROR: file already exists")
