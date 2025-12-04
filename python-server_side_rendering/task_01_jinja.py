@@ -1,27 +1,35 @@
-#!/usr/bin/python3
-"""
-Basic Flask App using Jinja Templates
-"""
-
-from flask import Flask, render_template
-
-app = Flask(__name__)
+"""Module containing python script for sending invitations"""
+from os.path import exists
 
 
-@app.route('/')
-def home():
-    return render_template("index.html")
+def generate_invitations(template, attendees_list):
+    """Function for generating invitations"""
 
+    if not template:
+        print("ERROR: template cannot be empty")
+        return
 
-@app.route('/about')
-def about():
-    return render_template("about.html")
+    if not attendees_list:
+        print("ERROR: attendees_list cannot be empty")
+        return
 
+    if not isinstance(template, str):
+        print("ERROR: template must be a string")
+        return
 
-@app.route('/contact')
-def contact():
-    return render_template("contact.html")
+    if (not isinstance(attendees_list, list) or
+            not all(isinstance(item, dict) for item in attendees_list)):
+        print("ERROR: attendees_list must be a list of dictionaries")
+        return
 
-
-if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+    for index, attendee in enumerate(attendees_list, start=1):
+        template_schema = template
+        for key in ['name', 'event_title', 'event_date', 'event_location']:
+            placeholder = "{" + f"{key}" + "}"
+            value = attendee.get(key) or "N/A"
+            template_schema = template_schema.replace(placeholder, value)
+        if not exists(f"output_{index}.txt"):
+            with open(f"output_{index}.txt", "w") as file:
+                file.write(template_schema)
+        else:
+            print("ERROR: file already exists")
